@@ -7,8 +7,8 @@ public class App {
         var numero = sc.nextInt();
 
         var digitos = numeroDigitos(numero);        
-         System.out.println("El numero tiene "+digitos+" cifras");
-         
+        System.out.println("El numero tiene "+digitos+" cifras");
+        sc.close(); 
     }
 
     public static int numeroDigitos(int numero) throws Exception{
