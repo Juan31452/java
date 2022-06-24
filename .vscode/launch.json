@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HolaQuien",
+            "request": "launch",
+            "mainClass": "HolaQuien",
+            "projectName": "java_8f6b6863"
+        },
+        {
+            "type": "java",
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
@@ -19,9 +26,9 @@
         },
         {
             "type": "java",
-            "name": "Launch Ej00",
+            "name": "Launch Ej01",
             "request": "launch",
-            "mainClass": "Ej00",
+            "mainClass": "Ej01",
             "projectName": "java_8f6b6863"
         }
     ]
