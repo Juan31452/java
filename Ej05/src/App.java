@@ -7,8 +7,9 @@ public class App {
         int numero,cuadrado,cubo;
         System.out.println("Digite un mumero :");
         numero = sc.nextInt();
-        cuadrado = numero*numero;
-        cubo = numero*numero*numero;
+        cuadrado = numero*2;
+        cubo = numero*3;
+
         System.out.println(numero+ " el doble es: "+ cuadrado);
         System.out.println(numero+ " el triple es: "+ cubo);
         

@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "Ej08"
+        "Ej08",
+        "Ej05/src"
     ]
 }
