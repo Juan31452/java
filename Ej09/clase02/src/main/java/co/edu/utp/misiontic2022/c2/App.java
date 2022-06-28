@@ -1,9 +1,5 @@
 package co.edu.utp.misiontic2022.c2;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class App 
@@ -19,28 +15,32 @@ public class App
         sc.close();
     }
 
-    private static String numsuerte(String fecha) {
-      try{
-           //transforma la cadena en un tipo date
-           Date miFecha = new SimpleDateFormat("dd/MM/yyyy-HH:mm").parse(fecha);
-
-           //creo un calendario
-           Calendar calendario = Calendar.getInstance();
-           //establezco mi fecha
-           calendario.setTime(fecha);
-
-            //obtener el año
-            int anio = calendario.get(Calendar.YEAR);
-            //obtener el mes (0-11 ::: enero es 0 y diciembre es 11)
-            int mes = calendario.get(Calendar.MONTH);
-            //obtener el dia del mes (1-31)
-            int dia = calendario.get(Calendar.DAY_OF_MONTH);
-            int suma = anio + mes + dia;
-            return String.valueOf(suma);
-            } catch (ParseException ex) {
-
-        //manejar excepcion
+    private static String numsuerte(String fecha) 
+    {
+        
+         String cadena,cadena1,cadena2;
+         Integer dato,dato1,dato2,dato3,dato4,dato5,dato6,total,total1;
+         cadena = fecha; 
+         //cadena1 = fecha; 
+         //cadena2 = fecha; 
+         
+         int longitud = cadena.length();
+         dato = Integer.parseInt(cadena.substring(0,2));
+         dato1 = Integer.parseInt(cadena.substring(4,5));
+         dato2 = Integer.parseInt(cadena.substring(6,10));
+         total = dato + dato1 + dato2;
+         cadena1 = String.valueOf(total);
+         dato3 = Integer.parseInt(cadena1.substring(0,1));
+         dato4 = Integer.parseInt(cadena1.substring(1,2));
+         dato5 = Integer.parseInt(cadena1.substring(2,3));
+         dato6 = Integer.parseInt(cadena1.substring(3,4));
+         total1 = dato3 + dato4 + dato5 + dato6;
+         cadena2 = String.valueOf(total1); 
+         
+   
+             
+       return "Número de la suerte "+ cadena2;   
     }
-        //return "Fecha "+fecha;   
-    }
+
+   
 }
