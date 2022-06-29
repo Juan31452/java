@@ -6,13 +6,24 @@ public class App
 {
     public static void main( String[] args )
     {
-        Scanner sc =new Scanner(System.in);
+        /*Scanner sc =new Scanner(System.in);
         String fecha,resultado;
         System.out.println("Introduzca la fecha con formato dd/mm/yyyy");
         fecha = sc.nextLine().trim();
         resultado = numsuerte(fecha);
         System.out.println(resultado);
+        sc.close();*/
+
+        Scanner sc =new Scanner(System.in);
+        double precio, cant, iva;
+        System.out.println("Ingrese el precio de la unidad del producto: ");
+        precio = sc.nextDouble();
+        System.out.println("Cantidad de productos vendidos: ");
+        cant = sc.nextDouble();
+        System.out.println("Valor del IVA en porcentaje: ");
+        iva = sc.nextDouble();
         sc.close();
+        venta(precio,cant, iva);
     }
 
     private static String numsuerte(String fecha) 
@@ -22,12 +33,10 @@ public class App
          Integer dato,dato1,dato2,dato3,dato4,dato5,dato6,total,total1;
          int sumatoria = 0;
          cadena = fecha; 
-         //cadena1 = fecha; 
-         //cadena2 = fecha; 
          
          
          dato = Integer.parseInt(cadena.substring(0,2));
-         dato1 = Integer.parseInt(cadena.substring(4,5));
+         dato1 = Integer.parseInt(cadena.substring(3,5));
          dato2 = Integer.parseInt(cadena.substring(6,10));
          total = dato + dato1 + dato2;
          cadena1 = String.valueOf(total);
@@ -45,6 +54,12 @@ public class App
        return "Número de la suerte "+ cadena2;   
 
     }
-
+    
+    public static void venta(double p,double c,double i) {
+        double pSinIva,tIva;
+        pSinIva = p * c;
+        tIva = (pSinIva * i) / 100;
+        System.out.println("Precio de venta -> " + (pSinIva + tIva));         
+    }
    
 }
