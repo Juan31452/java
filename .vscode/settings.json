@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Ej08",
-        "Ej05/src"
+        "Ej05/src",
+        "Ej10/operaciones/src/main/java/co/edu/utp/misiontic2022"
     ]
 }
