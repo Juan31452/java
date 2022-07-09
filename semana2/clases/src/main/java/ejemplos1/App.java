@@ -25,11 +25,13 @@ public class App
         valoru = sc.nextDouble();
         
         Productos p1 = new Productos(id,nombre,cantidad,valoru);
+        Calculo cal = new Calculo(cantidad,valoru);
         System.out.println(p1.mensaje());
         System.out.println("Id : "+p1.getId());
         System.out.println("Nombre : "+p1.getNombre());
         System.out.println("Cantidad : "+p1.getCantidad());
-        System.out.println("Valor:Unitario : "+p1.getValor_Unitario());
+        System.out.println("Valor Unitario : "+p1.getValor_Unitario());
+        System.out.println("Valor Total : "+cal.CalcularTotal());
         
         sc.close();
       }
