@@ -23,6 +23,7 @@ public class Computadores
   {
     this.precioBase = precioBase;
     this.peso = peso; 
+    this.consumoW = CONSUMO_W;
   }
 
   public Computadores(Double precioBase, Integer peso, char consumoW) 
@@ -32,65 +33,66 @@ public class Computadores
     this.consumoW = consumoW;
   }
 
-    // Metodos
-    public Double calcularPrecio() 
+
+public Double calcularPrecio() 
+  {
+    Double adicion = 0.0;
+    Double total = 0.0;
+    //  Consumo
+    switch(consumoW)
     {
-      Double adicion = 0.0;
-      //  Consumo
-      switch(consumoW)
-       {
-         case 'A':
-          adicion+=100.0;
-          break;
-         case 'B':
-          adicion+=80.0;
-          break;
-         case 'C':
-          adicion+=60.0;
-          break;
-         case 'D':
-          adicion+=50.0;
-          break;
-         case 'E':
-          adicion+=30.0;
-          break;
-         case 'F':
-          adicion+=10.0;
-          break;    
-        }
-        //peso
-        if (peso>=0 && peso<19 ) 
-        {
-          adicion+=10.0;    
-        } 
-        else if(peso>=20 && peso<49)
-        {
-            adicion+=50.0;
-        }
-        else if(peso>=50 && peso<=79)
-        {
-            adicion+=80.0;
-        }
-        else if(peso>=80)
-        {
-            adicion+=100.0;
-        }
-       return precioBase + adicion;
-
+      case 'A':
+        adicion+=100.0;
+        break;
+      case 'B':
+        adicion+=80.0;
+        break;
+      case 'C':
+        adicion+=60.0;
+        break;
+      case 'D':
+        adicion+=50.0;
+        break;
+      case 'E':
+        adicion+=30.0;
+        break;
+      case 'F':
+        adicion+=10.0;
+        break;    
     }
+    //peso
+    if (peso>=0 && peso<19 ) 
+    {
+      adicion+=10.0;    
+    } 
+    else if(peso>=20 && peso<49)
+    {
+      adicion+=50.0;
+    }
+    else if(peso>=50 && peso<=79)
+    {
+      adicion+=80.0;
+    }
+    else if(peso>=80)
+    {
+      adicion+=100.0;
+   }
+   total = precioBase + adicion;
+   return total;
+  }
    
-    //getter
+  //getter
 
-    public Integer getPeso() {
-        return peso;
-    }
+  public Integer getPeso() {
+    return peso;
+  }
 
-    public char getConsumoW() {
-        return consumoW;
-    }
+  public char getConsumoW() {
+    return consumoW;
+  }
 
-    public Double getPrecioBase() {
-        return precioBase;
-    }
+  public Double getPrecioBase() {
+    return precioBase;
+  }
 
 }

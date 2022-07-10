@@ -35,13 +35,13 @@ public class ComputadoresPortatiles extends Computadores{
   {  
     // Método Código return adicion;
     double adicion = super.calcularPrecio();
-    if (pulgadas>40)
+    if (pulgadas > 40)
     {
-        adicion +=precioBase*0.3;
+      adicion +=precioBase*0.3;
     }
     if (camaraITG)
     {
-        adicion+=50.0;
+      adicion+=50.0;
     }
     return adicion;
   }

@@ -7,7 +7,7 @@ public class App
     {
        // Pruebas Públicas
        Computadores computadores[] = new Computadores[6];
-       computadores[0] = new Computadores(150.0, 70,'A');
+       computadores[0] = new Computadores(150.0,70,'A');
        computadores[1] = new ComputadoresMesa(70.0, 40);
        computadores[2] = new ComputadoresPortatiles(600.0, 70, 'D', 50, false);
        computadores[3] = new Computadores();

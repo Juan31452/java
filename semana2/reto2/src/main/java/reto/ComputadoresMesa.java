@@ -6,10 +6,14 @@ public class ComputadoresMesa extends Computadores{
   private Integer almacenamiento;
 
   // Constructor
-  public ComputadoresMesa() 
+  /**
+ * 
+ */
+public ComputadoresMesa() 
   {
     this.peso = PESO_BASE;
     this.precioBase = PRECIO_BASE;
+    this.consumoW = CONSUMO_W;
     this.almacenamiento = ALMACENAMIENTO_BASE;
     
   }
@@ -17,12 +21,12 @@ public class ComputadoresMesa extends Computadores{
   public ComputadoresMesa(Double precioBase, Integer peso) 
   { 
     super(precioBase,peso);
+    this.consumoW = CONSUMO_W;
     this.almacenamiento = ALMACENAMIENTO_BASE;
 
   }
   // Constructor
-  public ComputadoresMesa(Double precioBase, Integer peso, char consumoW, 
-  Integer almacenamiento) 
+  public ComputadoresMesa(Double precioBase, Integer peso, char consumoW, Integer almacenamiento) 
   {
     super(precioBase,peso,consumoW); 
     this.almacenamiento = almacenamiento;
@@ -33,10 +37,12 @@ public class ComputadoresMesa extends Computadores{
    {
       double adicion = super.calcularPrecio();
       // Código return adicion;
-     
-      adicion+=50.0;
-    
-      return adicion;
+      if (almacenamiento>100)
+      {
+        adicion+=50.0;
+      }
+
+     return adicion;
     }
   
   public Integer getCarga() 
