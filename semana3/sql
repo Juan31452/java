@@ -1,0 +1,43 @@
+CREATE TABLE Productos (
+	Idproducos INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Nombre TEXT NOT NULL,
+	Descripcion TEXT,
+	Imagen TEXT,
+	Cantidad INTEGER,
+	Valor_Unitario INTEGER
+);
+
+CREATE TABLE Produccion (
+	Idproduccio INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Fecha Date,
+	Producto INTEGER,
+	Nombre TEXT,
+	Cantidad INTEGER,
+	CONSTRAINT Produccion_FK FOREIGN KEY (Producto) REFERENCES Productos(Idproducos) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Ventas (
+	Idventa INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Fecha TEXT,
+	Producto INTEGER,
+	Cantidad INTEGER,
+	Valor_Unitario INTEGER,
+	Valor_Total INTEGER,
+	CONSTRAINT Ventas_FK FOREIGN KEY (Producto) REFERENCES Productos(Idproducos)
+);
+
+SELECT ID_MaterialConstruccion as ID,Nombre_Material as NOMBRE,Precio_Unidad as PRECIO 
+FROM  MaterialConstruccion mc order by Nombre_Material  ;
+
+SELECT p.ID_Proyecto AS ID,p.Constructora,p.Ciudad,p.Clasificacion,t.Estrato, 
+l.Nombre||' '||l.Primer_Apellido||' '||l.Segundo_Apellido  AS LIDER 
+FROM Proyecto p JOIN Tipo t ON p.ID_Tipo = t.ID_Tipo JOIN Lider l ON p.ID_Lider = l.ID_Lider 
+WHERE p.Banco_Vinculado = 'Conavi' ORDER BY p.Fecha_Inicio DESC,Ciudad ;ASC 
+
+SELECT p.Ciudad ,p.Clasificacion,COUNT(p.Ciudad) AS TOTAL,MIN(p.Fecha_Inicio) AS VIEJO , MAX(p.Fecha_Inicio) AS NUEVO FROM  Proyecto p 
+GROUP BY p.Ciudad ,p.Clasificacion 
+HAVING p.Clasificacion <>'Casa Campestre';
+
+SELECT p.ID_Proyecto,SUM(mc.Precio_Unidad)  FROM  Proyecto p JOIN Compra c ON p.ID_Proyecto = c.ID_Proyecto
+JOIN MaterialConstruccion mc ON c.ID_MaterialConstruccion = mc.ID_MaterialConstruccion ;
+

@@ -18,17 +18,17 @@ public class Valida {
         System.out.printf("El área del cuadrado %s es: %f \n", c1.getColor(), c1.calcularArea());
 
         //Para el circulo
-        Scanner sc1 = new Scanner(System.in);
-        System.out.print("Introduzca el color del circulo: ");
-        colorDelCirculo = sc1.nextLine();
+        // Scanner sc1 = new Scanner(System.in);
+        // System.out.print("Introduzca el color del circulo: ");
+        // colorDelCirculo = sc1.nextLine();
 
-        System.out.print("Introduzca el radio del circulo: ");
-        radioDelCirculo = sc1.nextDouble();
+        // System.out.print("Introduzca el radio del circulo: ");
+        // radioDelCirculo = sc1.nextDouble();
 
-        Circulo ci1 = new Circulo(colorDelCirculo, radioDelCirculo);
-        System.out.printf("El área del circulo %s es: %f", ci1.getColor(), ci1.calcularArea());
-        sc.close();
-        sc1.close();
+        // Circulo ci1 = new Circulo(colorDelCirculo, radioDelCirculo);
+        // System.out.printf("El área del circulo %s es: %f", ci1.getColor(), ci1.calcularArea());
+        // sc.close();
+        // sc1.close();
 
     }
 }
