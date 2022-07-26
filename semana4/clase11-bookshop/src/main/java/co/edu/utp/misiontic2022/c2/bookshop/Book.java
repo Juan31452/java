@@ -1,4 +1,4 @@
-package co.edu.utp.misiontic2022.c2.cdiaz.bookshop;
+package co.edu.utp.misiontic2022.c2.bookshop;
 
 public class Book {
     private String title;

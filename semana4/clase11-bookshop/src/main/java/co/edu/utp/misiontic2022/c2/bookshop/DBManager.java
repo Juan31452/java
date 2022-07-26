@@ -1,7 +1,9 @@
 package co.edu.utp.misiontic2022.c2.bookshop;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +66,35 @@ public class DBManager implements AutoCloseable {
      */
     public Book searchBook(String isbn) throws SQLException {
         // TODO: program this method
-        return null;
+        Book resp = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try
+        {
+          stmt = connection.createStatement();
+          rs = stmt.executeQuery("Select * From Book Where isbn ='"+isbn+"'");
+          if (rs.next())
+          {
+            resp = new Book();
+            resp.setId(rs.getInt("id"));
+            resp.setIsbn(rs.getString("isbn"));
+            resp.setTitle(rs.getString("title"));
+            resp.setYear(rs.getInt("year"));            
+          }     
+        }finally{
+            if (rs != null)
+           {
+              rs.close();
+           }
+
+           if (stmt != null)
+           {
+              stmt.close();
+           }
+        }
+        return resp;
+
+        
     }
 
     /**
@@ -102,6 +132,22 @@ public class DBManager implements AutoCloseable {
      */
     public List<Book> listBooks() throws SQLException {
         // TODO: program this method
-        return new ArrayList<Book>();
+        List<Book> resp = new ArrayList<>();
+        try ( var stmt = connection.createStatement();
+              var rs = stmt.executeQuery("Select * From Book"))
+              {
+              
+                while (rs.next())
+                {
+                    var e = new Book();
+                    e.setId(rs.getInt("id"));
+                    e.setIsbn(rs.getString("isbn"));
+                    e.setTitle(rs.getString("title"));
+                    e.setYear(rs.getInt("year")); 
+                    resp.add(e);         
+                }
+              }    
+            return resp;
+          
     }
 }
