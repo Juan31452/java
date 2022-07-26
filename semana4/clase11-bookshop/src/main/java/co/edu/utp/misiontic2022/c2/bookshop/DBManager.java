@@ -54,7 +54,20 @@ public class DBManager implements AutoCloseable {
      */
     public int getStock(int bookId) throws SQLException {
         // TODO: program this method
-        return 0;
+        int r = 0;
+        try ( var stmt = connection.prepareStatement
+        ("Select existencia From Unidades Where id_libro=? "))
+        {
+            stmt.setInt(1,bookId);
+            try( var rs = stmt.executeQuery()){
+                if (rs.next())
+                {
+                   r = rs.getInt("existencia"); 
+                }
+            }       
+        }
+    
+        return r;
     }
 
     /**
