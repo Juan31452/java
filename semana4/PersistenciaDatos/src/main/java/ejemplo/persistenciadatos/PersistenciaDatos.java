@@ -1,11 +1,12 @@
 package ejemplo.persistenciadatos;
 
+import java.io.IOException;
 import java.util.*;
 import static persistenciadatos.ManejoArchivos.*;
 
 public class PersistenciaDatos {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Listas
         //List lista1 = new ArrayList();
         //lista1.add(1);
@@ -43,8 +44,11 @@ public class PersistenciaDatos {
         //mapas
         // Crear archivo
         //ManejoArchivos.crearArchivo("Ejemplo.txt");
-        ManejoArchivos.escribirArchivo("Ejemplo1.txt","Se escribio desde java" );
-          
+        //Escribir en el archivo
+        //ManejoArchivos.escribirArchivo("Ejemplo1.txt","Se escribio desde java" );
+        //ManejoArchivos.escribirArchivo("Ejemplo1.txt","Se escribio otra vez");
+        //ManejoArchivos.leerArchivo("Ejemplo1.txt");
+        ManejoArchivos.eliminarArchivo("Ejemplo.txt");
     }   
                 
 }
