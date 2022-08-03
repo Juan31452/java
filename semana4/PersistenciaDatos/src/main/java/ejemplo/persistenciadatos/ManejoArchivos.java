@@ -66,8 +66,7 @@ public class ManejoArchivos {
             archivo.delete();
             System.out.println("Archivo eliminado");  
         }    
-        }
-            
     }
+            
   
 }
