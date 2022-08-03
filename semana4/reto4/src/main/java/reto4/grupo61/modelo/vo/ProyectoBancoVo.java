@@ -14,21 +14,26 @@ public class ProyectoBancoVo implements Serializable{
 
     @Id
     private Integer id_proyecto;
-     @Column
+    @Column
     private String constructora;
     private String ciudad;
-      private String clasificacion;
+    private String clasificacion;
+    private Integer estrato;
+    private String lider;
        
 
     public ProyectoBancoVo() {
    
     }
 
-    public ProyectoBancoVo(Integer id_proyecto, String constructora, String ciudad, String clasificacion) {
+    public ProyectoBancoVo(Integer id_proyecto, String constructora, String ciudad, String clasificacion, Integer estrato, String lider )
+    {
         this.id_proyecto = id_proyecto;
         this.constructora = constructora;
         this.ciudad = ciudad;
         this.clasificacion = clasificacion;
+        this.estrato = estrato;
+        this.lider = lider;
     }
      
     
@@ -85,6 +90,29 @@ public class ProyectoBancoVo implements Serializable{
     public void setClasificacion(String clasificacion) {
         this.clasificacion = clasificacion;
     }
+
+    public Integer getEstrato() {
+        return estrato;
+    }
+
+    public void setEstrato(Integer estrato) {
+        this.estrato = estrato;
+    }
+
+    public String getLider() {
+        return lider;
+    }
+
+    public void setLider(String lider) {
+        this.lider = lider;
+    }
+
+    @Override
+    public String toString() 
+    {
+        return String.format("%3d %-25s %-20s %-15s %7d %-30s",id_proyecto,
+        constructora,ciudad,clasificacion,estrato,lider);
+    }    
 
 
 }
