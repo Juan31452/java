@@ -36,12 +36,12 @@ public class ProyectoBancoDao
           while(rs.next())
            {
               ProyectoBancoVo proyecto = new ProyectoBancoVo();
-              proyecto.setId_proyecto(rs.getInt("id"));
-              proyecto.setCiudad(rs.getString("ciudad"));
-              proyecto.setConstructora(rs.getString("constructora"));
-              proyecto.setClasificacion(rs.getString("clasificacion"));
-              proyecto.setEstrato(rs.getInt("estrato"));
-              proyecto.setLider(rs.getString("lider"));
+              proyecto.setId_proyecto(rs.getInt("ID"));
+              proyecto.setCiudad(rs.getString("CIUDAD"));
+              proyecto.setConstructora(rs.getString("CONSTRUCTORA"));
+              proyecto.setClasificacion(rs.getString("CLASIFICACION"));
+              proyecto.setEstrato(rs.getInt("ESTRATO"));
+              proyecto.setLider(rs.getString("LIDER"));
               a.add(proyecto);
            }
         }finally
