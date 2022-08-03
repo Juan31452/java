@@ -1,20 +1,10 @@
 package reto4.grupo61.modelo.vo;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Table;
 
 
-@Entity
-@Table(name = "Proyetos")
-public class ProyectoBancoVo implements Serializable{
+public class ProyectoBancoVo{
 
-    @Id
     private Integer id_proyecto;
-    @Column
     private String constructora;
     private String ciudad;
     private String clasificacion;
@@ -42,30 +32,18 @@ public class ProyectoBancoVo implements Serializable{
         return id_proyecto;
     }
 
-    /**
-     * @param id_proyecto the id_proyecto to set
-     */
     public void setId_proyecto(Integer id_proyecto) {
         this.id_proyecto = id_proyecto;
     }
 
-    /**
-     * @return String return the constructora
-     */
     public String getConstructora() {
         return constructora;
     }
 
-    /**
-     * @param constructora the constructora to set
-     */
     public void setConstructora(String constructora) {
         this.constructora = constructora;
     }
 
-    /**
-     * @return String return the ciudad
-     */
     public String getCiudad() {
         return ciudad;
     }
