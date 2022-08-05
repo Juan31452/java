@@ -20,10 +20,13 @@ public class ComprasDeLiderVo {
         this.valor = valor;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() 
     {
-        return String.format("%3d %,15.1f", lider, valor);    
+        return String.format("%-25s %,15.1f", lider, valor);    
     }    
 
 

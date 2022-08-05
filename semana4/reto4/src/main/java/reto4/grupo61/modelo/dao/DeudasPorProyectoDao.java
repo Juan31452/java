@@ -17,15 +17,15 @@ public class DeudasPorProyectoDao {
         Connection conn = JDBCUtilities.getConnection(); 
         PreparedStatement pstmt = null;  
         ResultSet rs = null;  
-        String consulta = "SELECT P.ID_PROYECTO, SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) AS VALOR"
-                          +"FROM PROYECTO P"
-                          +"JOIN COMPRA C ON (P.ID_PROYECTO = C.ID_PROYECTO)"
-                          +"JOIN MATERIALCONSTRUCCION MC ON (C.ID_MATERIALCONSTRUCCION ="
-                          +"MC.ID_MATERIALCONSTRUCCION)"
-                          +"WHERE C.PAGADO = 'No'"
-                          +"GROUP BY P.ID_PROYECTO"
-                          +"HAVING VALOR ?"
-                          +"ORDER BY VALOR DESC";
+        String consulta = "SELECT P.ID_PROYECTO AS ID, SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) AS VALOR"
+                          +" FROM PROYECTO P"
+                          +" JOIN COMPRA C ON (P.ID_PROYECTO = C.ID_PROYECTO)"
+                          +" JOIN MATERIALCONSTRUCCION MC ON (C.ID_MATERIALCONSTRUCCION ="
+                          +" MC.ID_MATERIALCONSTRUCCION)"
+                          +" WHERE C.PAGADO = 'No'"
+                          +" GROUP BY P.ID_PROYECTO"
+                          +" HAVING SUM(C.CANTIDAD * MC.PRECIO_UNIDAD) > ?"
+                          +" ORDER BY VALOR DESC";
         try
         {
           pstmt = conn.prepareStatement(consulta);
@@ -34,7 +34,7 @@ public class DeudasPorProyectoDao {
           while(rs.next())
            {
               DeudasPorProyectoVo Deudas = new DeudasPorProyectoVo();
-              Deudas.setId(rs.getInt("ID_PROYECTO"));
+              Deudas.setId(rs.getInt("ID"));
               Deudas.setValor(rs.getDouble("VALOR"));
               a.add(Deudas);
            }

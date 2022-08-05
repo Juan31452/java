@@ -21,13 +21,13 @@ public class ProyectoBancoDao
         PreparedStatement pstmt = null;  
         ResultSet rs = null;  
         String consulta = "SELECT P.ID_PROYECTO AS ID, P.CONSTRUCTORA, P.CIUDAD,"
-                        +"P.CLASIFICACION, T.ESTRATO, L.NOMBRE||' '||L.PRIMER_APELLIDO||'"
-                        +"||L.SEGUNDO_APELLIDO AS LIDER"
-                        +"FROM PROYECTO P"
-                        +"JOIN TIPO T ON (P.ID_TIPO = T.ID_TIPO)"
-                        +"JOIN LIDER L ON (P.ID_LIDER = L.ID_LIDER)"
-                        +"WHERE P.BANCO_VINCULADO = 'Conavi'"
-                        +"ORDER BY FECHA_INICIO DESC, CIUDAD, CONSTRUCTORA";
+                        +" P.CLASIFICACION, T.ESTRATO, L.NOMBRE||' '||L.PRIMER_APELLIDO||"
+                        +" ' '||L.SEGUNDO_APELLIDO AS LIDER"
+                        +" FROM PROYECTO P"
+                        +" JOIN TIPO T ON (P.ID_TIPO = T.ID_TIPO)"
+                        +" JOIN LIDER L ON (P.ID_LIDER = L.ID_LIDER)"
+                        +" WHERE P.BANCO_VINCULADO = ?"
+                        +" ORDER BY FECHA_INICIO DESC, CIUDAD, CONSTRUCTORA";
         try
         {
           pstmt = conn.prepareStatement(consulta);
