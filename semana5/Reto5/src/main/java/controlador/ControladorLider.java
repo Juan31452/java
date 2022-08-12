@@ -1,6 +1,7 @@
 
 package controlador;
 
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -13,19 +14,47 @@ import modelo.ProyectoDao;
 import modelo.ProyectoVo;
 import vista.Consulta1;
 import vista.Consulta2;
+import vista.FrmLider;
+import vista.FrmProyectos;
+import vista.MenuPrincipal;
 
 
 public class ControladorLider implements ActionListener {
 
-   
+      MenuPrincipal menup;
+      FrmLider flider;
+      FrmProyectos fproyectos;
       LiderVo lidervo = new LiderVo();
       LiderDao liderdao = new LiderDao();
       ProyectoDao proyectodao = new ProyectoDao();
       Consulta1 ver = new Consulta1();
       Consulta2 ver1 = new Consulta2();
       DefaultTableModel modelo = new DefaultTableModel();  
-       
+      
+   
+  
 
+    public ControladorLider() {
+        menup = new MenuPrincipal();
+        flider = new FrmLider();
+        fproyectos = new FrmProyectos();
+        
+    }
+    
+     public void iniciar()
+    {
+        menup.setTitle("Menu Principal");
+        menup.getMenuLider().addActionListener(this);
+        menup.getMenuProyectos().addActionListener(this);
+        menup.getMenuCompras().addActionListener(this);
+        flider.BtnConsultar.addActionListener(this);
+        fproyectos.BtnConsultar.addActionListener(this);
+        
+        menup.setLocationRelativeTo(null);
+        menup.setVisible(true);
+       
+    }        
+    
     public ControladorLider(Consulta1 v) {
         this.ver = v;
         this.ver.BtnConsultar.addActionListener(this);
@@ -49,7 +78,30 @@ public class ControladorLider implements ActionListener {
           {
             Listar1(ver1.MiTabla);   
           }    
-       }  
+       }
+       
+       if(e.getSource().equals(menup.getMenuLider()))
+       {
+           menup.getEscritorio().add(flider);
+           flider.setVisible(true);
+       }
+       
+       if(e.getSource().equals(menup.getMenuProyectos()))
+       {
+           menup.getEscritorio().add(fproyectos);
+           fproyectos.setVisible(true);
+       }
+       
+       if(e.getSource()== flider.BtnConsultar    )
+       {
+           Listar(flider.MiTabla);
+       }
+       
+       if(e.getSource()== fproyectos.BtnConsultar    )
+       {
+           Listar(fproyectos.MiTabla);
+       }
+       
     }
     
     public void Listar(JTable tabla)

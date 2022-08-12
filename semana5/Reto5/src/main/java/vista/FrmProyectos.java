@@ -1,18 +1,15 @@
 
 package vista;
 
-import controlador.ControladorLider;
+import javax.swing.JButton;
+import javax.swing.JTable;
 
+public class FrmProyectos extends javax.swing.JInternalFrame {
 
-
-public class Consulta1 extends javax.swing.JFrame {
-
-   
-    public Consulta1() {
+    public FrmProyectos() {
         initComponents();
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,7 +18,10 @@ public class Consulta1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         MiTabla = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 0));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        setClosable(true);
+        setTitle("Consulta Lider");
 
         BtnConsultar.setText("Consultar");
 
@@ -30,7 +30,7 @@ public class Consulta1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "APELLIDO", "CIUDAD"
+                "ID", "CONSTRUCTORA", "N.HABITANTES", "CIUDAD"
             }
         ));
         jScrollPane1.setViewportView(MiTabla);
@@ -55,21 +55,27 @@ public class Consulta1 extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(BtnConsultar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-         Consulta1 ver = new Consulta1();
-         ControladorLider c = new ControladorLider(ver);
-         ver.setVisible(true);
-         ver.setLocationRelativeTo(null);
+    public JButton getBtnConsultar() {
+        return BtnConsultar;
+    }
+
+    public void setBtnConsultar(JButton BtnConsultar) {
+        this.BtnConsultar = BtnConsultar;
+    }
+
+    public JTable getMiTabla() {
+        return MiTabla;
+    }
+
+    public void setMiTabla(JTable MiTabla) {
+        this.MiTabla = MiTabla;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
