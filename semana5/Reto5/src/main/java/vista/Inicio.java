@@ -1,16 +1,13 @@
 
 package vista;
 
-import controlador.ControladorLider;
+import controlador.Controlador;
 
-/**
- *
- * @author juank
- */
+
 public class Inicio {
 
     public static void main(String[] args) {
-        ControladorLider form = new ControladorLider();
+        Controlador form = new Controlador();
         form.iniciar();
     }
     

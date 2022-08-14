@@ -18,13 +18,15 @@ public class FrmLider extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         MiTabla = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 255, 0));
+        setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         setClosable(true);
         setTitle("Consulta Lider");
 
         BtnConsultar.setText("Consultar");
 
+        MiTabla.setBackground(new java.awt.Color(204, 255, 255));
+        MiTabla.setForeground(new java.awt.Color(102, 0, 153));
         MiTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
